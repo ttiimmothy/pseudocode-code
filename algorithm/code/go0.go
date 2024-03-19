@@ -1,6 +1,8 @@
 package code
 
 // Sort an Array
+//
+//lint:ignore U1000 Function is intentionally left unused
 func sortArray(nums []int) []int {
 	mergeSort(nums, 0, len(nums)-1)
 	return nums
