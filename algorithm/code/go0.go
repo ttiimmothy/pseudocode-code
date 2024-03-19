@@ -6,8 +6,10 @@ func MergeSort(nums []int, low int, high int) {
 		mid := low + (high-low)/2
 		MergeSort(nums, low, mid)
 		MergeSort(nums, mid+1, high)
-		L := nums[low : mid+1]
-		R := nums[mid+1 : high+1]
+		L := make([]int, mid-low+1)
+		R := make([]int, high-mid)
+		copy(L, nums[low:mid+1])
+		copy(R, nums[mid+1:high+1])
 		i, j := 0, 0
 		k := low
 		for i < len(L) && j < len(R) {
@@ -33,7 +35,7 @@ func MergeSort(nums []int, low int, high int) {
 	}
 }
 
-// Quick Sort
+// Quick Sort, may cause time limit error
 func QuickSort(nums []int, low int, high int) {
 	if low < high {
 		pivot := partition(nums, low, high)

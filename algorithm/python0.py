@@ -40,7 +40,7 @@ def dfs(candidates: List[int], target: int, subArray: List[int], result: List[Li
           subArray + [candidates[i]], result)
 
 
-# Quick Sort, time complexity O(nlogn), memory complexity O(1)
+# Quick Sort, time complexity O(nlogn), memory complexity O(1), may cause time limit error
 def quick_sort(nums, low, high):
   if low < high:
     pivot = partition(nums, low, high)
@@ -62,7 +62,7 @@ def partition(nums, low, high):
 quick(array, 0, len(array) - 1)
 
 
-# Merge Sort, time complexity O(nlogn), memory complexity O(1)
+# Merge Sort, time complexity O(nlogn), memory complexity O(n)
 def merge_sort(nums, low, high):
   if low < high:
     mid = low + (high - low) // 2
