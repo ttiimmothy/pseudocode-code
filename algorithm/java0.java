@@ -344,7 +344,7 @@ public int[] intersection(int[] nums1, int[] nums2) {
   return result;
 }
 
-// Quick Sort, time complexity O(nlogn), memory complexity O(1)
+// Quick Sort, time complexity O(nlogn), memory complexity O(1), may cause time limit error
 public void quickSort(int[] nums, int low, int high){
   if(low < high){
     int pivot = partition(nums, low, high);
@@ -374,7 +374,7 @@ public void swap(int[] nums, int i, int j){
 
 quickSort(array, 0, array.length - 1);
 
-// Merge Sort, time complexity O(nlogn), memory complexity O(1)
+// Merge Sort, time complexity O(nlogn), memory complexity O(n)
 public void mergeSort(int[] nums, int low, int high){
   if(low < high){
     int mid = low + (high - low) / 2;
