@@ -37,6 +37,9 @@ public List<List<Integer>> threeSum(int[] nums) {
         while(nums[left] == nums[left - 1] && left < right){
           left++; // skip the same result array occurred
         }
+        while(left < right && nums[right] == nums[right + 1]){
+          right--;
+        }
       }
     }
   }
@@ -249,6 +252,27 @@ public int maxProfit(int[] prices) {
     overallProfit = Math.max(overallProfit, maxCurrent);
   }
   return overallProfit;
+}
+
+// Gas Station
+public int canCompleteCircuit(int[] gas, int[] cost) {
+  int totalGas = 0, totalCost = 0;
+  for(int i = 0; i < gas.length; i++){
+    totalGas += gas[i];
+    totalCost += cost[i];
+  }
+  if(totalGas < totalCost){
+    return -1;
+  }
+  int total = 0, result = 0;
+  for(int i = 0; i < gas.length; i++){
+    total += gas[i] - cost[i];
+    if(total < 0){
+      result = i + 1;
+      total = 0;
+    }
+  }
+  return result;
 }
 
 // Two Sum II - Input Array Is Sorted

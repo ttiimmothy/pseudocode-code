@@ -1,43 +1,38 @@
-# Combination Sum
-def combinationSum(candidates: List[int], target: int) -> List[List[int]]:
-  result = []
-  # subArray initially is an empty array
-  dfs(candidates, target, [], result)
-  return result
+class Solution:
+  # Combination Sum
+  def combinationSum(self, candidates: List[int], target: int) -> List[List[int]]:
+    result = []
+    # subArray initially is an empty array
+    self.dfs(candidates, target, [], result)
+    return result
 
+  def dfs(self, candidates: List[int], target: int, subArray: List[int], result: List[List[int]]):
+    if target < 0:  # target is negative
+      return  # back tracking
+    if target == 0:
+      result.append(subArray)
+      return
+    for i in range(len(candidates)):
+      if candidates[i] <= target:
+        # candidates need to be shorten after finish one iteration
+        self.dfs(candidates[i:], target - candidates[i],
+                 subArray + [candidates[i]], result)
 
-def dfs(candidates: List[int], target: int, subArray: List[int], result: List[List[int]]):
-  if target < 0:  # target is negative
-    return  # back tracking
-  if target == 0:
-    result.append(subArray)
-    return
-  for i in range(len(candidates)):
-    if candidates[i] <= target:
-      # candidates need to be shorten after finish one iteration
-      dfs(candidates[i:], target - candidates[i],
-          subArray + [candidates[i]], result)
-
-
-# Combination Sum
-def combinationSum(candidates: List[int], target: int) -> List[List[int]]:
-  result = []
-  # subArray initially is an empty array
-  dfs(candidates, target, [], result)
-  return result
-
-
-def dfs(candidates: List[int], target: int, subArray: List[int], result: List[List[int]]):
-  if target < 0:  # target is negative
-    return  # back tracking
-  if target == 0:
-    result.append(subArray)
-    return
-  for i in range(len(candidates)):
-    if candidates[i] <= target:
-      # candidates need to be shorten after finish one iteration
-      dfs(candidates[i:], target - candidates[i],
-          subArray + [candidates[i]], result)
+  # Gas Station
+  def canCompleteCircuit(self, gas: List[int], cost: List[int]) -> int:
+    possibleOutcome = 0  # assume the starting point is the result
+    gasTank = 0
+    totalTank = 0
+    for i in range(len(gas)):
+      totalTank += gas[i] - cost[i]
+      gasTank += gas[i] - cost[i]
+      if gasTank < 0:
+        possibleOutcome = i + 1
+        gasTank = 0
+    if totalTank >= 0:
+      return possibleOutcome
+    else:
+      return -1
 
 
 # Quick Sort, time complexity O(nlogn), memory complexity O(1), may cause time limit error
