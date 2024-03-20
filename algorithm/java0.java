@@ -45,6 +45,23 @@ public List<List<Integer>> threeSum(int[] nums) {
   }
 }
 
+// Valid Parentheses
+public boolean isValid(String s) {
+  Stack<Character> stack = new Stack();
+  for(char i : s.toCharArray()){
+    if(i == '('){
+      stack.push(')');
+    }else if(i == '{'){
+      stack.push('}');
+    }else if(i == '['){
+      stack.push(']');
+    }else if(stack.isEmpty() || i != stack.pop()){ // the order is important, stack.isEmpty() needs to be the first condition
+      return false;
+    }
+  }
+  return stack.isEmpty();
+}
+
 // Combination Sum
 public List<List<Integer>> combinationSum(int[] candidates, int target) {
   List<List<Integer>> result = new ArrayList();

@@ -42,11 +42,13 @@ func mergeSort(nums []int, low int, high int) {
 }
 
 // Merge Sort
-func MergeSort(nums []int, low int, high int) {
+//
+//lint:ignore U1000 Function is intentionally left unused
+func mergeSortSample(nums []int, low int, high int) {
 	if low < high {
 		mid := low + (high-low)/2
-		MergeSort(nums, low, mid)
-		MergeSort(nums, mid+1, high)
+		mergeSortSample(nums, low, mid)
+		mergeSortSample(nums, mid+1, high)
 		L := make([]int, mid-low+1)
 		R := make([]int, high-mid)
 		copy(L, nums[low:mid+1])
@@ -77,11 +79,13 @@ func MergeSort(nums []int, low int, high int) {
 }
 
 // Quick Sort, may cause time limit error
-func QuickSort(nums []int, low int, high int) {
+//
+//lint:ignore U1000 Function is intentionally left unused
+func quickSort(nums []int, low int, high int) {
 	if low < high {
 		pivot := partition(nums, low, high)
-		QuickSort(nums, low, pivot-1)
-		QuickSort(nums, pivot+1, high)
+		quickSort(nums, low, pivot-1)
+		quickSort(nums, pivot+1, high)
 	}
 }
 
@@ -99,7 +103,9 @@ func partition(nums []int, low int, high int) int {
 }
 
 // Bubble Sort
-func BubbleSort(nums []int) {
+//
+//lint:ignore U1000 Function is intentionally left unused
+func bubbleSort(nums []int) {
 	n := len(nums)
 	for i := 0; i < n-1; i++ {
 		swapped := false
