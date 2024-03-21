@@ -338,6 +338,7 @@ public int majorityElement(int[] nums) {
 }
 
 // a
+// b
 
 // Contains Duplicate
 public boolean containsDuplicate(int[] nums) {
