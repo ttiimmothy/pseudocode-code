@@ -337,6 +337,8 @@ public int majorityElement(int[] nums) {
   return 0;
 }
 
+// a
+
 // Contains Duplicate
 public boolean containsDuplicate(int[] nums) {
   Set<Integer> set = new HashSet();
