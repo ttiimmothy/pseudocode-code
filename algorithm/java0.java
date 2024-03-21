@@ -337,9 +337,6 @@ public int majorityElement(int[] nums) {
   return 0;
 }
 
-// ad
-// b
-
 // Contains Duplicate
 public boolean containsDuplicate(int[] nums) {
   Set<Integer> set = new HashSet();
@@ -414,6 +411,8 @@ public int[] intersection(int[] nums1, int[] nums2) {
   }
   return result;
 }
+
+// Backspace String Compare
 
 // Sort an Array
 public int[] sortArray(int[] nums) {
