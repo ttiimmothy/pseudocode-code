@@ -1,4 +1,5 @@
 import array
+from typing import List
 
 
 class Solution:
