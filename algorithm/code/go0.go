@@ -19,6 +19,24 @@ func sortColors(nums []int) {
 	}
 }
 
+// Product of Array Except Self
+//
+//lint:ignore U1000 Function is intentionally left unused
+func productExceptSelf(nums []int) []int {
+	prefix := 1
+	result := make([]int, len(nums))
+	for i := 0; i < len(nums); i++ {
+		result[i] = prefix
+		prefix *= nums[i]
+	}
+	postfix := 1
+	for i := len(nums) - 1; i >= 0; i-- {
+		result[i] *= postfix
+		postfix *= nums[i]
+	}
+	return result
+}
+
 // Sort an Array
 //
 //lint:ignore U1000 Function is intentionally left unused
