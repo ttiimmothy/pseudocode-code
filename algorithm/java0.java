@@ -413,6 +413,39 @@ public int[] intersection(int[] nums1, int[] nums2) {
 }
 
 // Backspace String Compare
+public boolean backspaceCompare(String s, String t) {
+  int ps = s.length() - 1;
+  int pt = t.length() - 1;
+  while(ps >= 0 || pt >= 0){
+    ps = findValidCharIndex(s, ps);
+    pt = findValidCharIndex(t, pt);
+    if(ps < 0 && pt < 0){
+      return true;
+    }else if(ps < 0 || pt < 0){
+      return false;
+    }else if(s.charAt(ps) != t.charAt(pt)){
+      return false;
+    }
+    ps--;
+    pt--;
+  }
+  return true;
+}
+
+public int findValidCharIndex(String str, int end){
+  int backspaceNum = 0;
+  while(end >= 0){
+    if(str.charAt(end) == '#'){
+      backspaceNum++;
+    }else if(backspaceNum > 0){
+      backspaceNum--;
+    }else{
+      break;
+    }
+    end--;
+  }
+  return end;
+}
 
 // Sort an Array
 public int[] sortArray(int[] nums) {
