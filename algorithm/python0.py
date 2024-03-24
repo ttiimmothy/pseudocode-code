@@ -1,3 +1,6 @@
+import array
+
+
 class Solution:
   # Combination Sum
   def combinationSum(self, candidates: List[int], target: int) -> List[List[int]]:
@@ -54,7 +57,7 @@ def partition(nums, low, high):
   return i + 1
 
 
-quick(array, 0, len(array) - 1)
+quick_sort(array, 0, len(array) - 1)
 
 
 # Merge Sort, time complexity O(nlogn), memory complexity O(n)
