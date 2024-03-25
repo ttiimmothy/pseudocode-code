@@ -37,6 +37,43 @@ func productExceptSelf(nums []int) []int {
 	return result
 }
 
+// Backspace String Compare
+//
+//lint:ignore U1000 Function is intentionally left unused
+func backspaceCompare(s string, t string) bool {
+	pointerS := len(s) - 1
+	pointerT := len(t) - 1
+	for pointerS >= 0 || pointerT >= 0 {
+		pointerS = findValidCharIndex(s, pointerS)
+		pointerT = findValidCharIndex(t, pointerT)
+		if pointerS < 0 && pointerT < 0 {
+			return true
+		} else if pointerS < 0 || pointerT < 0 {
+			return false
+		} else if s[pointerS] != t[pointerT] {
+			return false
+		}
+		pointerS--
+		pointerT--
+	}
+	return true
+}
+
+func findValidCharIndex(str string, end int) int {
+	backspaceCount := 0
+	for end >= 0 {
+		if str[end] == '#' {
+			backspaceCount++
+		} else if backspaceCount > 0 {
+			backspaceCount--
+		} else {
+			break
+		}
+		end--
+	}
+	return end
+}
+
 // Sort an Array
 //
 //lint:ignore U1000 Function is intentionally left unused
