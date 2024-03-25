@@ -38,6 +38,18 @@ class Solution:
     else:
       return -1
 
+  # Backspace String Compare, not the optimized solution
+  def backspaceCompare(self, s: str, t: str) -> bool:
+    def checking(str: str):
+      stack = []
+      for i in str:
+        if i != "#":
+          stack.append(i)
+        elif len(stack) > 0:
+          stack.pop()
+      return stack
+    return checking(s) == checking(t)
+
 
 # Quick Sort, time complexity O(nlogn), memory complexity O(1), may cause time limit error
 def quick_sort(nums, low, high):
